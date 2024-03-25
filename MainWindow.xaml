@@ -1,0 +1,193 @@
+﻿<Window x:Class="interfaz_grafica_zoila.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:interfaz_grafica_zoila"
+        mc:Ignorable="d"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        MouseDown="Window_MouseDown"
+        Title="MainWindow" Height="550" Width="800">
+
+    <Border CornerRadius="50"
+             BorderThickness="7" >
+        <Border.Background >
+            <ImageBrush ImageSource="Imagenes/Back-logoMc.jpg" ></ImageBrush>
+        </Border.Background>
+
+        <Border CornerRadius="50"
+                BorderThickness="7"
+                Opacity="0.8">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="White"></GradientStop>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="White"></GradientStop>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="Btn_Minimizar"
+                            Background="#ff6543"
+                            BorderThickness="0"
+                            Content="-"
+                            Cursor="Hand"
+                            Foreground="White" FontSize="18"
+                            Grid.Column="1"
+                            Click="Btn_Minimizar_Click" FontFamily="Cascadia Code SemiBold">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="20" Height="20"
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button x:Name="Btn_Close"
+                            Background="#ff6543"
+                            BorderThickness="0"
+                            Content="X"
+                            Cursor="Hand"
+                            Foreground="White" FontSize="14"
+                            Grid.Column="2"
+                            Click="Btn_Close_Click" FontFamily="Cascadia Code SemiBold">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="20" Height="20"
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+
+                <StackPanel Width="250"
+                            Grid.Row="2"
+                            Orientation="Vertical"
+                            Margin="0,35,0,0">
+                    <TextBlock Text="USER LOGIN"
+                               FontSize="22"
+                               FontWeight="Medium"
+                               FontFamily="Cascadia Code SemiBold"
+                               Foreground="#292c37"
+                               HorizontalAlignment="Center"
+                               Margin="0,80,0,0"/>
+
+                    <TextBlock Text="Username"
+                                FontSize="15"
+                                FontWeight="Medium"
+                                FontFamily="Cascadia Code SemiBold"
+                               Foreground="#292c37"
+                               Width="234" Height="21"
+                               Margin="0,20,0,0"/>
+
+                    <Border CornerRadius="20" BorderThickness="1" BorderBrush="Gray" Margin="0,10,0,0">
+                        <TextBox x:Name="txtUsername"
+                                    FontSize="15"
+                                    FontWeight="Medium" Height="36"
+                                    FontFamily="Cascadia Code SemiBold"
+                                    VerticalContentAlignment="Center"
+                                    Cursor="Hand"
+                                    BorderBrush="Transparent"
+                                    BorderThickness="0"
+                                    Padding="50,0,0,0">
+                            <TextBox.Background>
+                                <ImageBrush ImageSource="Imagenes/icon-user.png" Stretch="Uniform"
+                                            AlignmentX="Left"/>
+                            </TextBox.Background>
+                        </TextBox>
+                    </Border>
+
+                    <TextBlock Text="Password"
+                                FontSize="15"
+                                FontWeight="Medium"
+                                FontFamily="Cascadia Code SemiBold"
+                               Foreground="#292c37"
+                               Width="234" Height="21"
+                               Margin="0,30,0,0"/>
+
+                    <Border CornerRadius="20" BorderThickness="1" BorderBrush="Gray" Margin="0,10,0,0">
+                        <PasswordBox x:Name="txtPassword"
+                                    FontSize="15"
+                                    FontWeight="Medium" Height="36"
+                                    FontFamily="Cascadia Code SemiBold"
+                                    VerticalContentAlignment="Center"
+                                    Cursor="Hand"
+                                    BorderBrush="Transparent"
+                                    BorderThickness="0"
+                                    Padding="40,0,0,0">     
+                            <PasswordBox.Background>
+                                <ImageBrush ImageSource="Imagenes/password-icon.png" Stretch="Uniform"
+                                             AlignmentX="Right"/>
+                            </PasswordBox.Background>
+                        </PasswordBox>
+                    </Border>
+
+                    <Button x:Name="Btn_Login"
+                            Background="#ff6543"
+                            BorderThickness="0"
+                            Content="LOG IN"
+                            Foreground="White" FontSize="14"
+                            Click="Btn_Login_Click"
+                            Cursor="Hand"
+                            FontFamily="Cascadia Code SemiBold"
+                            Margin="0,45,0,0">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="200" Height="25"
+                                CornerRadius="9"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0,15,0,0" Width="164" Height="10">
+                        <TextBlock Text="Forgot Password?"
+                                FontSize="10"
+                                FontWeight="Medium"
+                                FontFamily="Cascadia Code SemiBold"
+                               Foreground="#292c37"
+                                   Cursor="Hand"/>
+                        <TextBlock Text="Reset"
+                                FontSize="10"
+                                FontWeight="Bold"
+                                FontFamily="Cascadia Code SemiBold"
+                               Foreground="#292c37"
+                                   Cursor="Hand"
+                                   Margin="15,0,0,0"/>
+                    </StackPanel>
+                    
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Border>
+
+</Window>
