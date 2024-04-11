@@ -60,8 +60,10 @@ namespace interfaz_grafica_zoila
 
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
 
+
                     if (count > 0)
                     {
+                   
                         MainWindowAdmin mainWindowAdmin = new MainWindowAdmin();
                         mainWindowAdmin.Show();
                     }
