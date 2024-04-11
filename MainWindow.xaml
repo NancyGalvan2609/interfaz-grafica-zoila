@@ -100,7 +100,7 @@
                     <TextBlock Text="Username"
                                 FontSize="15"
                                 FontWeight="Medium"
-                                FontFamily="Cascadia Code SemiBold"
+                                FontFamily="Inter"
                                Foreground="#292c37"
                                Width="234" Height="21"
                                Margin="0,20,0,0"/>
@@ -125,7 +125,7 @@
                     <TextBlock Text="Password"
                                 FontSize="15"
                                 FontWeight="Medium"
-                                FontFamily="Cascadia Code SemiBold"
+                                FontFamily="Inter"
                                Foreground="#292c37"
                                Width="234" Height="21"
                                Margin="0,30,0,0"/>

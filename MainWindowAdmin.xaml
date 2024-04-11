@@ -1,0 +1,126 @@
+﻿<Window x:Class="interfaz_grafica_zoila.MainWindowAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:interfaz_grafica_zoila"
+        mc:Ignorable="d"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        MouseDown="Window_MouseDown"
+        Title="MainWindowAdmin" Height="550" Width="800">
+
+
+
+    <Border CornerRadius="50"
+            BorderThickness="7">
+        <Border.Background >
+            <SolidColorBrush Color="White"></SolidColorBrush>
+        </Border.Background>
+
+
+
+        <Grid Margin="-1,3,1,3">
+            <Image Name="BackgroungLogo" Source="D:\Nancy}\Tareas 4to semestre\Ing en sotware\interfaz-grafica-zoila\Imagenes\Back-logoMc.png" 
+                   Grid.Column="1" Margin="27,92,0,45"
+                   Opacity="0.5"></Image>
+            <Image Name="Mustard" Source="D:\Nancy}\Tareas 4to semestre\Ing en sotware\interfaz-grafica-zoila\Imagenes\mustard.png" Grid.ColumnSpan="2" Margin="1,-8,-1,415" RenderTransformOrigin="0.5,0.5"></Image>
+            <Image x:Name="LogoHome" Source="D:\Nancy}\Tareas 4to semestre\Ing en sotware\interfaz-grafica-zoila\Imagenes\McLogo.png" Margin="2,10,148,468"/>
+            <TextBlock HorizontalAlignment="Left" Margin="90,26,0,0" TextWrapping="Wrap" Text="Bienvenido Admin!" VerticalAlignment="Top" RenderTransformOrigin="-2.598,-0.282" Height="32" Width="233" FontFamily="Inter" FontSize="24" FontWeight="Bold" Grid.ColumnSpan="2"/>
+
+            <Button Grid.Column="1" HorizontalAlignment="Left" Margin="466,3,0,0" VerticalAlignment="Top"
+                    x:Name="Btn_Minimizar"
+                            Background="#ff6543"
+                            BorderThickness="0"
+                            Content="-"
+                            Cursor="Hand"
+                            Foreground="White" FontSize="18"
+                            FontFamily="Cascadia Code SemiBold" Click="Btn_Minimizar_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="20" Height="20"
+                            CornerRadius="9"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Column="1" HorizontalAlignment="Left" Margin="489,4,0,0" VerticalAlignment="Top"
+                    x:Name="Btn_Close"
+                            Background="#ff6543"
+                            BorderThickness="0"
+                            Content="X"
+                            Cursor="Hand"
+                            Foreground="White" FontSize="14"
+                            FontFamily="Cascadia Code SemiBold" Click="Btn_Close_Click_1">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="20" Height="20"
+                        CornerRadius="9"
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="436,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top"
+                       x:Name="CerrarSesion"
+                       Cursor="Hand"
+                       MouseLeftButtonDown="CerrarSesion_MouseLeftButtonDown" FontFamily="Inter" FontSize="13" TextDecorations="Underline"><Run Text="Cerrar Sesi"/><Run Language="es-mx" Text="ó"/><Run Text="n"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="25,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top"
+                       x:Name="ReporteVentas"
+                       Text="Reporte de ventas" 
+                       FontFamily="Inter" FontSize="15"
+                       Cursor="Hand"
+                       Grid.Column="0"
+                       MouseLeftButtonDown="ReporteVentas_MouseLeftButtonDown"/>
+            <Image x:Name="MustardMini1" Source="D:\Nancy}\Tareas 4to semestre\Ing en sotware\interfaz-grafica-zoila\Imagenes\MiniMustard.png" Grid.Column="0" Margin="1,174,93,326"/>
+            <TextBlock HorizontalAlignment="Left" Margin="25,233,0,0" TextWrapping="Wrap" 
+                       Text="Inventario" VerticalAlignment="Top"
+                       x:Name="Inventario"
+                        FontFamily="Inter" FontSize="15"
+                        Cursor="Hand"
+                        Grid.Column="0"
+                        MouseLeftButtonDown="Inventario_MouseLeftButtonDown"/>
+            <Image x:Name="MustardMini2" Source="D:\Nancy}\Tareas 4to semestre\Ing en sotware\interfaz-grafica-zoila\Imagenes\MiniMustard.png" Grid.Column="0" Margin="0,254,94,250"/>
+            <TextBlock HorizontalAlignment="Left" Margin="25,319,0,0" TextWrapping="Wrap" VerticalAlignment="Top"
+                       x:Name="AltaUsuarios"
+                       Text="Alta de usuarios"
+                       FontFamily="Inter" FontSize="15"
+                        Cursor="Hand"
+                        Grid.Column="0"
+                       MouseLeftButtonDown="AltaUsuarios_MouseLeftButtonDown"/>
+            <Image x:Name="MustardMini3" Source="D:\Nancy}\Tareas 4to semestre\Ing en sotware\interfaz-grafica-zoila\Imagenes\MiniMustard.png" Grid.Column="0" Margin="1,338,93,162"/>
+            <TextBlock HorizontalAlignment="Left" Margin="25,420,0,0" TextWrapping="Wrap" VerticalAlignment="Top"
+                       x:Name="Horario"
+                       Text="Horarios"
+                       FontFamily="Inter" FontSize="15"
+                       Cursor="Hand"
+                       Grid.Column="0"
+                       MouseLeftButtonDown="Horario_MouseLeftButtonDown"/>
+            <Image x:Name="MustardMini4" Source="D:\Nancy}\Tareas 4to semestre\Ing en sotware\interfaz-grafica-zoila\Imagenes\MiniMustard.png" Grid.Column="0" Margin="1,439,93,61"/>
+            
+
+
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+
+
+
+
+        </Grid>
+
+
+
+    </Border>
+</Window>

@@ -62,8 +62,8 @@ namespace interfaz_grafica_zoila
 
                     if (count > 0)
                     {
-                        MessageBox.Show("Inicio de sesión exitoso!");
-                        // Aquí puedes abrir la nueva ventana o realizar otras acciones después del inicio de sesión exitoso
+                        MainWindowAdmin mainWindowAdmin = new MainWindowAdmin();
+                        mainWindowAdmin.Show();
                     }
                     else
                     {
