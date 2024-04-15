@@ -16,7 +16,8 @@
     <Border CornerRadius="50"
              BorderThickness="7" >
         <Border.Background >
-            <ImageBrush ImageSource="Imagenes/Back-logoMc.jpg" ></ImageBrush>
+            
+            <ImageBrush ImageSource="Imagen/Mookaa.jpg" ></ImageBrush>
         </Border.Background>
 
         <Border CornerRadius="50"
@@ -32,8 +33,9 @@
                     <GradientStop Color="White"></GradientStop>
                 </LinearGradientBrush>
             </Border.Background>
-
+            
             <Grid>
+                
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
                     <RowDefinition/>

@@ -155,24 +155,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Back-logoMc.jpg" />
-    <Resource Include="Imagenes\icon-user.png" />
-    <Resource Include="Imagenes\password-icon.png" />
+    <Resource Include="Imagen\icon-user.png" />
+    <Resource Include="Imagen\password-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\username.jpg" />
+    <Resource Include="Imagen\username.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\mustard.png" />
+    <Resource Include="Imagen\MascotaMooka.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\MiniMustard.png" />
+    <Resource Include="Imagen\Mookaa.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\McLogo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\Back-logoMc.png" />
+    <Resource Include="Imagen\Mooka.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
