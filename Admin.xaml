@@ -1,0 +1,58 @@
+﻿<Window x:Class="interfaz_grafica_zoila.Admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:interfaz_grafica_zoila"
+        mc:Ignorable="d"
+      
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Title="Admin" Height="450" Width="800">
+
+    <Grid Margin="0,0,0,375" x:Name="GridSuperior">
+
+        <Image Source="Imagen/CafeBackk.png" Margin="-91,-6,-144,-31"></Image>
+        <Image Source="Imagen/LogoMooka.png" Margin="18,-4,681,0"
+               x:Name="BtnHome"
+               Cursor="Hand"
+               MouseLeftButtonDown="BtnHome_MouseLeftButtonDown"></Image>
+        <TextBlock x:Name="CerrarSesion"
+                    VerticalAlignment="Center" HorizontalAlignment="Left" Margin="665,0,0,0" TextWrapping="Wrap" 
+                    Text="Cerrar Sesión" FontFamily="UD Digi Kyokasho NK-B" TextDecorations="Underline" Foreground="White"
+                    Cursor="Hand" MouseLeftButtonDown="CerrarSesion_MouseLeftButtonDown" Width="125"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="123,20,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"
+                   Text="Welcome Admin!"
+                   FontFamily="UD Digi Kyokasho NK-B" FontWeight="Bold" FontSize="18"/>
+
+
+
+
+        <Grid Margin="1,84,-1,-383" x:Name="GridHome" Visibility="Visible">
+            <Image Source="Imagen/MascotaMooka.png" Margin="390,10,0,0" Opacity="0.4"></Image>
+            <Button x:Name="AltaUsuarios" Content="Alta De Usuarios" 
+                    Background="#BD7755" BorderThickness="0"
+                    FontFamily="UD Digi Kyokasho NK-B"  FontSize="13"
+                    Click="AltaUsuarios_Click" Cursor="Hand"
+                    HorizontalAlignment="Left" Margin="-10,64,0,0" VerticalAlignment="Top" Height="31" Width="211" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="150" Height="25"
+                            CornerRadius="9"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+        </Grid>
+
+        <Grid Margin="1,84,-1,-383" x:Name="AltaUsuariosGrid" Visibility="Hidden">
+            <TextBlock HorizontalAlignment="Center" Margin="0,152,0,0" TextWrapping="Wrap" Text="HOLA SOY ALTA DE USUARIOS" VerticalAlignment="Top" FontSize="50"/>
+
+        </Grid>
+    </Grid>
+
+</Window>
