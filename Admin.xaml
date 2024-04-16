@@ -5,14 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:interfaz_grafica_zoila"
         mc:Ignorable="d"
-      
+        AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
+        MouseDown="Window_MouseDown"
         Title="Admin" Height="450" Width="800">
 
+    <!--Plantilla estilo texbox-->
+    <Window.Resources>
+        <!-- Definir un nuevo estilo para el TextBox -->
+        <Style TargetType="TextBox" x:Key="UnderlineTextBox">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid>
+                            <Border BorderThickness="0,0,0,1" BorderBrush="Black">
+                                <TextBox Text="{TemplateBinding Text}" 
+                                         Background="Transparent"
+                                         BorderThickness="0"
+                                         Padding="0"
+                                         Foreground="{TemplateBinding Foreground}"/>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <!--Grid Superior-->
     <Grid Margin="0,0,0,375" x:Name="GridSuperior">
 
-        <Image Source="Imagen/CafeBackk.png" Margin="-91,-6,-144,-31"></Image>
+        <Image Source="Imagen/CafeBackk.png" Margin="0,-38,-1,-44"></Image>
         <Image Source="Imagen/LogoMooka.png" Margin="18,-4,681,0"
                x:Name="BtnHome"
                Cursor="Hand"
@@ -25,10 +54,10 @@
         <TextBlock HorizontalAlignment="Left" Margin="123,20,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"
                    Text="Welcome Admin!"
                    FontFamily="UD Digi Kyokasho NK-B" FontWeight="Bold" FontSize="18"/>
+        
 
 
-
-
+        <!--Grid Home-->
         <Grid Margin="1,84,-1,-383" x:Name="GridHome" Visibility="Visible">
             <Image Source="Imagen/MascotaMooka.png" Margin="390,10,0,0" Opacity="0.4"></Image>
             <Button x:Name="AltaUsuarios" Content="Alta De Usuarios" 
@@ -49,10 +78,72 @@
 
         </Grid>
 
+        <!--Grid Alta de Usuarios-->
         <Grid Margin="1,84,-1,-383" x:Name="AltaUsuariosGrid" Visibility="Hidden">
-            <TextBlock HorizontalAlignment="Center" Margin="0,152,0,0" TextWrapping="Wrap" Text="HOLA SOY ALTA DE USUARIOS" VerticalAlignment="Top" FontSize="50"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top"
+                       Text="Alta de usuarios"  FontSize="30"
+                       FontFamily="UD Digi Kyokasho NK-B"/>
+            <TextBlock TextWrapping="Wrap"
+                        Text="Completa el formulario con los datos"
+                        FontSize="14" FontFamily="UD Digi Kyokasho NK-B" Margin="262,68,262,285"/>
+            <TextBox HorizontalAlignment="Center" Margin="0,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="264"
+                     x:Name="TxtNombre" Cursor="Hand"
+                     Style="{StaticResource UnderlineTextBox}"
+                     Text="*Nombre: "  
+                     KeyDown="TxtNombre_KeyDown"
+                     />
+            <Button x:Name="BtnGuardarInfoNewUsuario"
+                    HorizontalAlignment="Center" Margin="0,301,0,0" VerticalAlignment="Top"
+                    Background="#6D2B0A" 
+                    BorderThickness="0"
+                    Content="Guardar" Cursor="Hand" Click="BtnGuardarInfoNewUsuario_Click"
+                    Foreground="White" FontSize="10" FontFamily="UD Digi Kyokasho NK-B" Height="25" Width="126">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="120" Height="25"
+                            CornerRadius="9"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
 
         </Grid>
+        <Button x:Name="CloseWindow"
+                HorizontalAlignment="Left" Margin="728,5,0,0" VerticalAlignment="Top"
+                Background="#6D2B0A"
+                BorderThickness="0"
+                Content=" X "
+                Cursor="Hand" Click="CloseWindow_Click"
+                Foreground="White" FontSize="14" FontFamily="UD Digi Kyokasho NK-B" Height="23" Width="29">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="20" Height="20"
+                        CornerRadius="9"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="MinimizeWindow"
+                HorizontalAlignment="Left" Margin="703,5,0,0" VerticalAlignment="Top"
+                Background="#6D2B0A"
+                BorderThickness="0"
+                Content=" - "
+                Cursor="Hand" Click="MinimizeWindow_Click"
+                Foreground="White" FontSize="14" FontFamily="UD Digi Kyokasho NK-B">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="20" Height="20"
+            CornerRadius="9"
+            Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 
 </Window>
