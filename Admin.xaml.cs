@@ -34,12 +34,12 @@ namespace interfaz_grafica_zoila
         {
             WindowState = WindowState.Minimized;
         }
-        //Cerrar panralla
+        //Cerrar pantalla
         private void CloseWindow_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
-
+        //Cierra pantalla de admin y te refresa al login 
         private void CerrarSesion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
@@ -59,6 +59,7 @@ namespace interfaz_grafica_zoila
             GridHome.Visibility = Visibility.Hidden;
             AltaUsuariosGrid.Visibility = Visibility.Visible;
             TxtNombre.GotFocus += TxtGotFocus;
+            TxtGenero.GotFocus += TxtGotFocus;
         }
 
         private void TxtNombre_KeyDown(object sender, KeyEventArgs e)
@@ -69,17 +70,31 @@ namespace interfaz_grafica_zoila
             }
         }
 
+        private void Genero_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                TextBox textBox = (TextBox)sender;
+            }
+        }
+
         private void BtnGuardarInfoNewUsuario_Click(object sender, RoutedEventArgs e)
         {  
             MessageBox.Show("oki-doki");
-            
+         
 
         }
 
        private void TxtGotFocus(object sender, RoutedEventArgs e)
-        {
-            TxtNombre.Clear();
-        }
+       {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null && textBox.Text == "*Nombre: " || textBox.Text == "*Genero (F/M)")
+            {
+                textBox.Clear(); 
+            }
+       }
+
+      
 
 
 

@@ -54,11 +54,44 @@
         <TextBlock HorizontalAlignment="Left" Margin="123,20,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"
                    Text="Welcome Admin!"
                    FontFamily="UD Digi Kyokasho NK-B" FontWeight="Bold" FontSize="18"/>
-        
+        <Button x:Name="CloseWindow"
+                HorizontalAlignment="Left" Margin="728,5,0,0" VerticalAlignment="Top"
+                Background="#6D2B0A"
+                BorderThickness="0"
+                Content=" X "
+                Cursor="Hand" Click="CloseWindow_Click"
+                Foreground="White" FontSize="14" FontFamily="UD Digi Kyokasho NK-B" Height="23" Width="29">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="20" Height="20"
+                            CornerRadius="9"
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="MinimizeWindow"
+                HorizontalAlignment="Left" Margin="703,5,0,0" VerticalAlignment="Top"
+                Background="#6D2B0A"
+                BorderThickness="0"
+                Content=" - "
+                Cursor="Hand" Click="MinimizeWindow_Click"
+                Foreground="White" FontSize="14" FontFamily="UD Digi Kyokasho NK-B">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="20" Height="20"
+                            CornerRadius="9"
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
 
         <!--Grid Home-->
-        <Grid Margin="1,84,-1,-383" x:Name="GridHome" Visibility="Visible">
+        <Grid Margin="1,84,-1,-383" x:Name="GridHome" Visibility="Hidden">
             <Image Source="Imagen/MascotaMooka.png" Margin="390,10,0,0" Opacity="0.4"></Image>
             <Button x:Name="AltaUsuarios" Content="Alta De Usuarios" 
                     Background="#BD7755" BorderThickness="0"
@@ -79,7 +112,7 @@
         </Grid>
 
         <!--Grid Alta de Usuarios-->
-        <Grid Margin="1,84,-1,-383" x:Name="AltaUsuariosGrid" Visibility="Hidden">
+        <Grid Margin="1,84,-1,-383" x:Name="AltaUsuariosGrid" Visibility="Visible">
             <TextBlock HorizontalAlignment="Center" Margin="0,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top"
                        Text="Alta de usuarios"  FontSize="30"
                        FontFamily="UD Digi Kyokasho NK-B"/>
@@ -90,10 +123,13 @@
                      x:Name="TxtNombre" Cursor="Hand"
                      Style="{StaticResource UnderlineTextBox}"
                      Text="*Nombre: "  
-                     KeyDown="TxtNombre_KeyDown"
-                     />
+                     KeyDown="TxtNombre_KeyDown"/>
+            <TextBox x:Name="TxtGenero" Margin="268,150,262,203"
+                     Text="*Genero (F/M)" Cursor="Hand"
+                     Style="{StaticResource UnderlineTextBox}"
+                     KeyDown="Genero_KeyDown"/>
             <Button x:Name="BtnGuardarInfoNewUsuario"
-                    HorizontalAlignment="Center" Margin="0,301,0,0" VerticalAlignment="Top"
+                    HorizontalAlignment="Center" Margin="0,243,0,0" VerticalAlignment="Top"
                     Background="#6D2B0A" 
                     BorderThickness="0"
                     Content="Guardar" Cursor="Hand" Click="BtnGuardarInfoNewUsuario_Click"
@@ -109,41 +145,14 @@
                 </Button.Template>
             </Button>
 
+            <ComboBox x:Name="comboBoxOpciones" SelectedIndex="0" Margin="309,187,328,166"
+                      Background="White"
+                      FontFamily="UD Digi Kyokasho NK-B">
+                <ComboBoxItem Content="Líder"/>
+                <ComboBoxItem Content="Empleado"/>
+            </ComboBox>
         </Grid>
-        <Button x:Name="CloseWindow"
-                HorizontalAlignment="Left" Margin="728,5,0,0" VerticalAlignment="Top"
-                Background="#6D2B0A"
-                BorderThickness="0"
-                Content=" X "
-                Cursor="Hand" Click="CloseWindow_Click"
-                Foreground="White" FontSize="14" FontFamily="UD Digi Kyokasho NK-B" Height="23" Width="29">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border Width="20" Height="20"
-                        CornerRadius="9"
-                        Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="MinimizeWindow"
-                HorizontalAlignment="Left" Margin="703,5,0,0" VerticalAlignment="Top"
-                Background="#6D2B0A"
-                BorderThickness="0"
-                Content=" - "
-                Cursor="Hand" Click="MinimizeWindow_Click"
-                Foreground="White" FontSize="14" FontFamily="UD Digi Kyokasho NK-B">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border Width="20" Height="20"
-            CornerRadius="9"
-            Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
+
     </Grid>
 
 </Window>
