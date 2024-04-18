@@ -16,7 +16,8 @@
     <Border CornerRadius="50"
              BorderThickness="7" >
         <Border.Background >
-            <ImageBrush ImageSource="Imagenes/Back-logoMc.jpg" ></ImageBrush>
+
+            <ImageBrush ImageSource="Imagen/MookaBackLogin.jpg"></ImageBrush>
         </Border.Background>
 
         <Border CornerRadius="50"
@@ -32,8 +33,9 @@
                     <GradientStop Color="White"></GradientStop>
                 </LinearGradientBrush>
             </Border.Background>
-
+            
             <Grid>
+                
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
                     <RowDefinition/>
@@ -47,7 +49,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Button x:Name="Btn_Minimizar"
-                            Background="#ff6543"
+                            Background="#6D2B0A"
                             BorderThickness="0"
                             Content="-"
                             Cursor="Hand"
@@ -66,13 +68,13 @@
                     </Button>
 
                     <Button x:Name="Btn_Close"
-                            Background="#ff6543"
+                            Background="#6D2B0A"
                             BorderThickness="0"
                             Content="X"
                             Cursor="Hand"
                             Foreground="White" FontSize="14"
                             Grid.Column="2"
-                            Click="Btn_Close_Click" FontFamily="Cascadia Code SemiBold">
+                            Click="Btn_Close_Click" FontFamily="Cascadia Code SemiBold" HorizontalAlignment="Left" Width="25">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Width="20" Height="20"
@@ -116,7 +118,7 @@
                                     BorderThickness="0"
                                     Padding="50,0,0,0">
                             <TextBox.Background>
-                                <ImageBrush ImageSource="Imagenes/icon-user.png" Stretch="Uniform"
+                                <ImageBrush ImageSource="Imagen/icon-user.png" Stretch="Uniform"
                                             AlignmentX="Left"/>
                             </TextBox.Background>
                         </TextBox>
@@ -141,14 +143,14 @@
                                     BorderThickness="0"
                                     Padding="40,0,0,0">     
                             <PasswordBox.Background>
-                                <ImageBrush ImageSource="Imagenes/password-icon.png" Stretch="Uniform"
+                                <ImageBrush ImageSource="Imagen/password-icon.png" Stretch="Uniform"
                                              AlignmentX="Right"/>
                             </PasswordBox.Background>
                         </PasswordBox>
                     </Border>
 
                     <Button x:Name="Btn_Login"
-                            Background="#ff6543"
+                            Background="#6D2B0A"
                             BorderThickness="0"
                             Content="LOG IN"
                             Foreground="White" FontSize="14"

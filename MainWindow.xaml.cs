@@ -63,9 +63,8 @@ namespace interfaz_grafica_zoila
 
                     if (count > 0)
                     {
-                   
-                        MainWindowAdmin mainWindowAdmin = new MainWindowAdmin();
-                        mainWindowAdmin.Show();
+                        Admin admin = new Admin();
+                        admin.Show();
                     }
                     else
                     {

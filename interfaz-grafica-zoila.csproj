@@ -107,27 +107,41 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Empleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Admin.xaml.cs">
+      <DependentUpon>Admin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Empleado.xaml.cs">
+      <DependentUpon>Empleado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lider.xaml.cs">
+      <DependentUpon>Lider.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MainWindowAdmin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainWindowAdmin.xaml.cs">
-      <DependentUpon>MainWindowAdmin.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -155,24 +169,32 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Back-logoMc.jpg" />
-    <Resource Include="Imagenes\icon-user.png" />
-    <Resource Include="Imagenes\password-icon.png" />
+    <Resource Include="Imagen\icon-user.png" />
+    <Resource Include="Imagen\password-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\username.jpg" />
+    <Resource Include="Imagen\username.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\mustard.png" />
+    <Resource Include="Imagen\MascotaMooka.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\MiniMustard.png" />
+    <Resource Include="Imagen\Mookaa.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\McLogo.png" />
+    <Resource Include="Imagen\Mooka.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Back-logoMc.png" />
+    <Resource Include="Imagen\logoCircularMooka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagen\MookaBackLogin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagen\CafeBackk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagen\LogoMooka.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
