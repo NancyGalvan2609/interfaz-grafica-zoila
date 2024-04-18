@@ -22,6 +22,8 @@ namespace interfaz_grafica_zoila
         public Admin()
         {
             InitializeComponent();
+
+
         }
         //Movimiento de la pantalla
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -94,7 +96,22 @@ namespace interfaz_grafica_zoila
             }
        }
 
-      
+        private void BtnReporte_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnInventario_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnHorarios_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
 
 
 

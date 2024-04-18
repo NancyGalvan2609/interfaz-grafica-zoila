@@ -41,8 +41,8 @@
     <!--Grid Superior-->
     <Grid Margin="0,0,0,375" x:Name="GridSuperior">
 
-        <Image Source="Imagen/CafeBackk.png" Margin="0,-38,-1,-44"></Image>
-        <Image Source="Imagen/LogoMooka.png" Margin="18,-4,681,0"
+        <Image Source="Imagen/CafeBackk.png" Margin="-1,-41,0,-41"></Image>
+        <Image Source="Imagen/LogoMooka.png" Margin="29,-4,681,10"
                x:Name="BtnHome"
                Cursor="Hand"
                MouseLeftButtonDown="BtnHome_MouseLeftButtonDown"></Image>
@@ -51,7 +51,7 @@
                     Text="Cerrar Sesión" FontFamily="UD Digi Kyokasho NK-B" TextDecorations="Underline" Foreground="White"
                     Cursor="Hand" MouseLeftButtonDown="CerrarSesion_MouseLeftButtonDown" Width="125"/>
 
-        <TextBlock HorizontalAlignment="Left" Margin="123,20,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"
+        <TextBlock HorizontalAlignment="Left" Margin="120,12,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"
                    Text="Welcome Admin!"
                    FontFamily="UD Digi Kyokasho NK-B" FontWeight="Bold" FontSize="18"/>
         <Button x:Name="CloseWindow"
@@ -91,15 +91,60 @@
 
 
         <!--Grid Home-->
-        <Grid Margin="1,84,-1,-383" x:Name="GridHome" Visibility="Hidden">
+        <Grid Margin="1,84,-1,-383" x:Name="GridHome" Visibility="Visible">
             <Image Source="Imagen/MascotaMooka.png" Margin="390,10,0,0" Opacity="0.4"></Image>
             <Button x:Name="AltaUsuarios" Content="Alta De Usuarios" 
                     Background="#BD7755" BorderThickness="0"
                     FontFamily="UD Digi Kyokasho NK-B"  FontSize="13"
                     Click="AltaUsuarios_Click" Cursor="Hand"
-                    HorizontalAlignment="Left" Margin="-10,64,0,0" VerticalAlignment="Top" Height="31" Width="211" >
+                    HorizontalAlignment="Left" Margin="-8,33,0,0" VerticalAlignment="Top" Height="31" Width="211" >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
+                        <Border Width="150" Height="25"
+                            CornerRadius="9"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="BtnReporte" Content="Reporte de ventas" 
+                Background="#BD7755" BorderThickness="0"
+                FontFamily="UD Digi Kyokasho NK-B"  FontSize="13"
+                Click="BtnReporte_Click" Cursor="Hand"
+                HorizontalAlignment="Left" Margin="-8,92,0,0" VerticalAlignment="Top" Height="31" Width="211" >
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="150" Height="25"
+                            CornerRadius="9"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="BtnInventario" Content="Inventario" 
+                Background="#BD7755" BorderThickness="0"
+                FontFamily="UD Digi Kyokasho NK-B"  FontSize="13"
+                Click="BtnInventario_Click" Cursor="Hand"
+                HorizontalAlignment="Left" Margin="-8,161,0,0" VerticalAlignment="Top" Height="31" Width="211" >
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="150" Height="25"
+                            CornerRadius="9"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="BtnHorarios" Content="Horario" 
+                Background="#BD7755" BorderThickness="0"
+                FontFamily="UD Digi Kyokasho NK-B"  FontSize="13"
+                Click="BtnHorarios_Click" Cursor="Hand"
+                HorizontalAlignment="Left" Margin="-8,227,0,0" VerticalAlignment="Top" Height="31" Width="211" >
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
                         <Border Width="150" Height="25"
                             CornerRadius="9"
                             Background="{TemplateBinding Background}">
@@ -112,7 +157,7 @@
         </Grid>
 
         <!--Grid Alta de Usuarios-->
-        <Grid Margin="1,84,-1,-383" x:Name="AltaUsuariosGrid" Visibility="Visible">
+        <Grid Margin="1,84,-1,-383" x:Name="AltaUsuariosGrid" Visibility="Hidden">
             <TextBlock HorizontalAlignment="Center" Margin="0,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top"
                        Text="Alta de usuarios"  FontSize="30"
                        FontFamily="UD Digi Kyokasho NK-B"/>
@@ -120,12 +165,12 @@
                         Text="Completa el formulario con los datos"
                         FontSize="14" FontFamily="UD Digi Kyokasho NK-B" Margin="262,68,262,285"/>
             <TextBox HorizontalAlignment="Center" Margin="0,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="264"
-                     x:Name="TxtNombre" Cursor="Hand"
+                     x:Name="TxtNombre" 
                      Style="{StaticResource UnderlineTextBox}"
                      Text="*Nombre: "  
                      KeyDown="TxtNombre_KeyDown"/>
             <TextBox x:Name="TxtGenero" Margin="268,150,262,203"
-                     Text="*Genero (F/M)" Cursor="Hand"
+                     Text="*Genero (F/M)" 
                      Style="{StaticResource UnderlineTextBox}"
                      KeyDown="Genero_KeyDown"/>
             <Button x:Name="BtnGuardarInfoNewUsuario"
