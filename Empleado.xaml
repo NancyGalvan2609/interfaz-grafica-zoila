@@ -5,9 +5,164 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:interfaz_grafica_zoila"
         mc:Ignorable="d"
-        Title="Empleado" Height="450" Width="800">
-    <Grid>
-        <TextBlock HorizontalAlignment="Center" Margin="0,156,0,0" TextWrapping="Wrap" Text="EMPLEADO" VerticalAlignment="Top" FontSize="80"/>
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        MouseDown="Window_MouseDown"
+        Title="Empleado" Height="550" Width="800">
 
+    <!--Estilo de botón redondeado-->
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="CustomButtonStyle">
+            <Setter Property="Background" Value="#BD7755"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontFamily" Value="UD Digi Kyokasho NK-B"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="150" Height="25"
+                                CornerRadius="9"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <!--Grid Superior-->
+        <Grid x:Name="GridSuperior" Margin="0,0,0,454" Visibility="Visible">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="409*"/>
+                <ColumnDefinition Width="391*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="Imagen/CafeBackk.png" Margin="0,-11,0,9" Grid.ColumnSpan="2"></Image>
+            <Image Source="Imagen/LogoMooka.png" Margin="30,-3,299,22"
+               x:Name="BtnHome"
+               Cursor="Hand"
+               MouseLeftButtonDown="BtnHome_MouseLeftButtonDown" ></Image>
+            <TextBlock x:Name="CerrarSesion"
+                    VerticalAlignment="Top" HorizontalAlignment="Left" Margin="274,34,0,0" TextWrapping="Wrap" 
+                    Text="Cerrar Sesión" FontFamily="UD Digi Kyokasho NK-B" TextDecorations="Underline" Foreground="White"
+                    Cursor="Hand" MouseLeftButtonDown="CerrarSesion_MouseLeftButtonDown" Width="125" Grid.Column="1"/>
+            <TextBlock HorizontalAlignment="Left" Margin="120,12,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"
+                   Text="Welcome!"
+                   FontFamily="UD Digi Kyokasho NK-B" FontWeight="Bold" FontSize="18"/>
+            <Button x:Name="CloseWindow"
+                HorizontalAlignment="Left" Margin="319,5,0,0" VerticalAlignment="Top"
+                Background="#6D2B0A"
+                BorderThickness="0"
+                Content=" X "
+                Cursor="Hand" Click="CloseWindow_Click"
+                Foreground="White" FontSize="14" FontFamily="UD Digi Kyokasho NK-B" Height="23" Width="29" Grid.Column="1">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="20" Height="20"
+                            CornerRadius="9"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="MinimizeWindow"
+                HorizontalAlignment="Left" Margin="294,5,0,0" VerticalAlignment="Top"
+                Background="#6D2B0A"
+                BorderThickness="0"
+                Content=" - "
+                Cursor="Hand" Click="MinimizeWindow_Click"
+                Foreground="White" FontSize="14" FontFamily="UD Digi Kyokasho NK-B" Grid.Column="1">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="20" Height="20"
+                        CornerRadius="9"
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+
+        <!--Grid Home-->
+        <Grid x:Name="Home" Margin="0,82,0,0" Visibility="Visible">
+            <!--Definimos las columnas utilizadas-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!--Botones para desplazarse en las ventanas-->
+            <Button HorizontalAlignment="Left" Margin="28,45,0,0" VerticalAlignment="Top"
+                    x:Name="BtnNomina"  Grid.Column="0"
+                    Content="Nómina"
+                    Click="Nomina_Click"
+                    Style="{StaticResource CustomButtonStyle}"/>
+            <Button HorizontalAlignment="Left" Margin="28,158,0,0" VerticalAlignment="Top"
+                    x:Name="BtnManuales"  Grid.Column="0"
+                    Content="Manuales"
+                    Click="Manuales_Click_1"
+                    Style="{StaticResource CustomButtonStyle}"/>
+            <Button HorizontalAlignment="Left" Margin="28,264,0,0" VerticalAlignment="Top"
+                    x:Name="BtnHorario"  Grid.Column="0"
+                    Content="Horario"
+                    Click="Horario_Click"
+                    Style="{StaticResource CustomButtonStyle}"/>
+            <Button HorizontalAlignment="Center" Margin="0,378,0,0" VerticalAlignment="Top"
+                    x:Name="BtnChat" Grid.Column="0"
+                    Content="Chat"
+                    Click="Chat_Click"
+                    Style="{StaticResource CustomButtonStyle}"/>
+            <Image Grid.Column="1" Source="/Imagen/MascotaMooka.png" Opacity=".5"></Image>
+            <Button HorizontalAlignment="Left" Margin="28,45,0,0" VerticalAlignment="Top"
+                    Grid.Column="2"
+                    x:Name="BtnObjetivos"
+                    Content="Objetivos"
+                    Click="Objetivos_Click"
+                    Style="{StaticResource CustomButtonStyle}"/>
+            <Button HorizontalAlignment="Center" Margin="0,158,0,0" VerticalAlignment="Top"
+                    Grid.Column="2"
+                    x:Name="BtnTabla"
+                    Content="Tabla del día"
+                    Click="BtnTabla_Click"
+                    Style="{StaticResource CustomButtonStyle}"/>
+            <Button HorizontalAlignment="Left" Margin="28,268,0,0" VerticalAlignment="Top"
+                    Grid.Column="2"
+                    x:Name="BtnPromo"
+                    Content="Promociones"
+                    Click="BtnPromo_Click"
+                    Style="{StaticResource CustomButtonStyle}"/>
+            <Button HorizontalAlignment="Left" Margin="28,374,0,0" VerticalAlignment="Top"
+                    Grid.Column="2"
+                    x:Name="BtnInventario"
+                    Content="Inventario"
+                    Click="BtnInventario_Click"
+                    Style="{StaticResource CustomButtonStyle}"/>
+        </Grid>
+
+        <!--Grid Manuales-->
+        <Grid x:Name="Manuales" Margin="0,82,0,0" Visibility="Hidden">
+            <!--Definimos las columnas utilizadas-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <UserControl Grid.Column="1" x:Name="MyUserControl" Visibility="Collapsed"></UserControl>
+            <Button x:Name="BtnComida"
+                    Grid.Column="0" Content="Comida" 
+                    Margin="24,28,24,404"
+                    Style="{StaticResource CustomButtonStyle}"
+                    Click="BtnComida_Click" >
+                    
+            </Button>
+        </Grid>
+        
     </Grid>
+
+
+
 </Window>
