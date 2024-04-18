@@ -45,7 +45,7 @@ namespace interfaz_grafica_zoila
 
         private void Btn_Login_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "server=localhost ;database=empresa;uid=root;password=root;";
+            string connectionString = "server=localhost;database=empresa;uid=root;password=root;";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -60,11 +60,35 @@ namespace interfaz_grafica_zoila
 
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
 
-
                     if (count > 0)
                     {
-                        Admin admin = new Admin();
-                        admin.Show();
+                        query = "SELECT Tipo FROM Empleado WHERE Nombre = @nombre";
+                        cmd = new MySqlCommand(query, connection);
+                        cmd.Parameters.AddWithValue("@nombre", txtUsername.Text);
+
+                        string tipoEmpleado = cmd.ExecuteScalar().ToString();
+
+                        switch (tipoEmpleado)
+                        {
+                            case "General":
+                                MessageBox.Show("Inicio de sesión exitoso como empleado general!");
+                                Empleado ventanaEmpleado = new Empleado();
+                                ventanaEmpleado.Show();
+                                break;
+                            case "Lider":
+                                MessageBox.Show("Inicio de sesión exitoso como líder!");
+                                Lider ventanaLider = new Lider();
+                                ventanaLider.Show();
+                                break;
+                            case "Gerente":
+                                MessageBox.Show("Inicio de sesión exitoso como gerente!");
+                                Admin ventanaGerente = new Admin();
+                                ventanaGerente.Show();
+                                break;
+                            default:
+                                MessageBox.Show("Tipo de empleado no válido.");
+                                break;
+                        }
                     }
                     else
                     {
@@ -77,5 +101,6 @@ namespace interfaz_grafica_zoila
                 }
             }
         }
+
     }
 }
