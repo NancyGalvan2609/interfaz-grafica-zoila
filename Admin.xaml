@@ -14,29 +14,35 @@
     <!--Plantilla estilo texbox-->
     <Window.Resources>
         <!-- Definir un nuevo estilo para el TextBox -->
-        <Style TargetType="TextBox" x:Key="UnderlineTextBox">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Padding" Value="0"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
-                        <Grid>
-                            <Border BorderThickness="0,0,0,1" BorderBrush="Black">
-                                <TextBox Text="{TemplateBinding Text}" 
-                                         Background="Transparent"
-                                         BorderThickness="0"
-                                         Padding="0"
-                                         Foreground="{TemplateBinding Foreground}"/>
-                            </Border>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
+		<Style TargetType="TextBox" x:Key="UnderlineTextBox">
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="Padding" Value="0"/>
+			<Setter Property="BorderBrush" Value="Transparent"/>
+			<Setter Property="Foreground" Value="Black"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="TextBox">
+						<Grid>
+							<Border BorderThickness="0,0,0,1" BorderBrush="Black">
+								<TextBox Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										 Background="Transparent"
+										 BorderThickness="0"
+										 Padding="0"
+										 Foreground="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"/>
+							</Border>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True">
+								<Setter Property="Text" Value=""/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+	</Window.Resources>
 
     <!--Grid Superior-->
     <Grid Margin="0,0,0,375" x:Name="GridSuperior">
@@ -194,7 +200,7 @@
                       Background="White"
                       FontFamily="UD Digi Kyokasho NK-B">
                 <ComboBoxItem Content="Líder"/>
-                <ComboBoxItem Content="Empleado"/>
+                <ComboBoxItem Content="General"/>
             </ComboBox>
         </Grid>
 
