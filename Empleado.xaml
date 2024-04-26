@@ -89,7 +89,7 @@
         </Grid>
 
         <!--Grid Home-->
-        <Grid x:Name="Home" Margin="0,82,0,0" Visibility="Visible">
+        <Grid x:Name="GridHome" Margin="0,82,0,0" Visibility="Visible">
             <!--Definimos las columnas utilizadas-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"></ColumnDefinition>
@@ -145,20 +145,36 @@
         </Grid>
 
         <!--Grid Manuales-->
-        <Grid x:Name="Manuales" Margin="0,82,0,0" Visibility="Hidden">
+        <Grid x:Name="GridManuales" Margin="0,82,0,0" Visibility="Hidden">
             <!--Definimos las columnas utilizadas-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <UserControl Grid.Column="1" x:Name="MyUserControl" Visibility="Collapsed"></UserControl>
+
+            <!--Botones-->
             <Button x:Name="BtnComida"
                     Grid.Column="0" Content="Comida" 
-                    Margin="24,28,24,404"
+                    Margin="24,56,24,376"
                     Style="{StaticResource CustomButtonStyle}"
                     Click="BtnComida_Click" >
-                    
             </Button>
+            <Button x:Name="BtnBebidasF"
+                    Grid.Column="0" Content="Bebidas Frías" 
+                    Margin="24,150,24,282"
+                    Style="{StaticResource CustomButtonStyle}">
+            </Button>
+            <Button x:Name="BtnBebidasC"
+                    Grid.Column="0" Content="Bebidas Calientes" 
+                    Margin="24,247,24,185"
+                    Style="{StaticResource CustomButtonStyle}">
+            </Button>
+            <Button x:Name="BtnPostres"
+                    Grid.Column="0" Content="Postres" 
+                    Margin="24,350,24,82"
+                    Style="{StaticResource CustomButtonStyle}">
+            </Button>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="242,193,0,0" TextWrapping="Wrap" Text="Aqui ira un carrusel de manuales" VerticalAlignment="Top"/>
         </Grid>
         
     </Grid>

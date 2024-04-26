@@ -54,6 +54,7 @@ namespace interfaz_grafica_zoila
         private void BtnHome_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             AltaUsuariosGrid.Visibility = Visibility.Hidden;
+            GridHorario.Visibility = Visibility.Hidden;
             GridHome.Visibility = Visibility.Visible;
         }
 
@@ -192,7 +193,20 @@ namespace interfaz_grafica_zoila
 
         private void BtnHorarios_Click(object sender, RoutedEventArgs e)
         {
+            GridHome.Visibility = Visibility.Hidden; 
+            GridHorario.Visibility = Visibility.Visible;
+        }
 
+        private void BtnMostrarHrs_Click(object sender, RoutedEventArgs e)
+        {
+            StackGenerarHrs.Visibility = Visibility.Hidden;
+            StackMostrarHrs.Visibility = Visibility.Visible;
+        }
+
+        private void BtnGenerarHrs_Click(object sender, RoutedEventArgs e)
+        {
+            StackMostrarHrs.Visibility = Visibility.Hidden;
+            StackGenerarHrs.Visibility = Visibility.Visible;
         }
 
 

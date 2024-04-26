@@ -33,7 +33,8 @@ namespace interfaz_grafica_zoila
 
         private void BtnHome_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            
+            GridManuales.Visibility = Visibility.Hidden;
+            GridHome.Visibility = Visibility.Visible;
         }
 
         private void CloseWindow_Click(object sender, RoutedEventArgs e)
@@ -57,12 +58,6 @@ namespace interfaz_grafica_zoila
 
         }
 
-        private void Manuales_Click(object sender, RoutedEventArgs e)
-        {
-            Home.Visibility = Visibility.Hidden;
-
-        }
-
         private void Chat_Click(object sender, RoutedEventArgs e)
         {
 
@@ -75,7 +70,8 @@ namespace interfaz_grafica_zoila
 
         private void Manuales_Click_1(object sender, RoutedEventArgs e)
         {
-
+            GridHome.Visibility = Visibility.Hidden;
+            GridManuales.Visibility = Visibility.Visible;
         }
 
         private void Objetivos_Click(object sender, RoutedEventArgs e)
@@ -100,7 +96,7 @@ namespace interfaz_grafica_zoila
 
         private void BtnComida_Click(object sender, RoutedEventArgs e)
         {
-            MyUserControl.Visibility = Visibility.Visible;
+
         }
     }
 }

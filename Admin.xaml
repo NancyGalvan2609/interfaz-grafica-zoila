@@ -11,90 +11,82 @@
         MouseDown="Window_MouseDown"
         Title="Admin" Height="450" Width="800">
 
-    <!--Plantilla estilo texbox-->
+
+
+    <!--Estilo de botón redondeado-->
     <Window.Resources>
-        <!-- Definir un nuevo estilo para el TextBox -->
-		<Style TargetType="TextBox" x:Key="UnderlineTextBox">
-			<Setter Property="Background" Value="Transparent"/>
-			<Setter Property="BorderThickness" Value="0"/>
-			<Setter Property="Padding" Value="0"/>
-			<Setter Property="BorderBrush" Value="Transparent"/>
-			<Setter Property="Foreground" Value="Black"/>
-			<Setter Property="Template">
-				<Setter.Value>
-					<ControlTemplate TargetType="TextBox">
-						<Grid>
-							<Border BorderThickness="0,0,0,1" BorderBrush="Black">
-								<TextBox Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										 Background="Transparent"
-										 BorderThickness="0"
-										 Padding="0"
-										 Foreground="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"/>
-							</Border>
-						</Grid>
-						<ControlTemplate.Triggers>
-							<Trigger Property="IsFocused" Value="True">
-								<Setter Property="Text" Value=""/>
-							</Trigger>
-						</ControlTemplate.Triggers>
-					</ControlTemplate>
-				</Setter.Value>
-			</Setter>
-		</Style>
+        <Style TargetType="Button" x:Key="CustomButtonStyle">
+            <Setter Property="Background" Value="#BD7755"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontFamily" Value="UD Digi Kyokasho NK-B"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="150" Height="25"
+                            CornerRadius="9"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 
-	</Window.Resources>
 
-    <!--Grid Superior-->
-    <Grid Margin="0,0,0,375" x:Name="GridSuperior">
-
-        <Image Source="Imagen/CafeBackk.png" Margin="-1,-41,0,-41"></Image>
-        <Image Source="Imagen/LogoMooka.png" Margin="29,-4,681,10"
+    <Grid Margin="0,0,0,375" >
+        <!--Grid Superior-->
+        <Grid x:Name="GridSuperior">
+            <Image Source="Imagen/CafeBackk.png" Margin="-1,-41,0,-41"></Image>
+            <Image Source="Imagen/LogoMooka.png" Margin="29,-4,681,10"
                x:Name="BtnHome"
                Cursor="Hand"
                MouseLeftButtonDown="BtnHome_MouseLeftButtonDown"></Image>
-        <TextBlock x:Name="CerrarSesion"
+            <TextBlock x:Name="CerrarSesion"
                     VerticalAlignment="Center" HorizontalAlignment="Left" Margin="665,0,0,0" TextWrapping="Wrap" 
                     Text="Cerrar Sesión" FontFamily="UD Digi Kyokasho NK-B" TextDecorations="Underline" Foreground="White"
                     Cursor="Hand" MouseLeftButtonDown="CerrarSesion_MouseLeftButtonDown" Width="125"/>
 
-        <TextBlock HorizontalAlignment="Left" Margin="120,12,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"
+            <TextBlock HorizontalAlignment="Left" Margin="120,12,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"
                    Text="Welcome Admin!"
                    FontFamily="UD Digi Kyokasho NK-B" FontWeight="Bold" FontSize="18"/>
-        <Button x:Name="CloseWindow"
+            <Button x:Name="CloseWindow"
                 HorizontalAlignment="Left" Margin="728,5,0,0" VerticalAlignment="Top"
                 Background="#6D2B0A"
                 BorderThickness="0"
                 Content=" X "
                 Cursor="Hand" Click="CloseWindow_Click"
                 Foreground="White" FontSize="14" FontFamily="UD Digi Kyokasho NK-B" Height="23" Width="29">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border Width="20" Height="20"
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="20" Height="20"
                             CornerRadius="9"
                             Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="MinimizeWindow"
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="MinimizeWindow"
                 HorizontalAlignment="Left" Margin="703,5,0,0" VerticalAlignment="Top"
                 Background="#6D2B0A"
                 BorderThickness="0"
                 Content=" - "
                 Cursor="Hand" Click="MinimizeWindow_Click"
                 Foreground="White" FontSize="14" FontFamily="UD Digi Kyokasho NK-B">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border Width="20" Height="20"
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="20" Height="20"
                             CornerRadius="9"
                             Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
 
         <!--Grid Home-->
         <Grid Margin="1,84,-1,-383" x:Name="GridHome" Visibility="Visible">
@@ -170,14 +162,12 @@
             <TextBlock TextWrapping="Wrap"
                         Text="Completa el formulario con los datos"
                         FontSize="14" FontFamily="UD Digi Kyokasho NK-B" Margin="262,68,262,285"/>
-            <TextBox HorizontalAlignment="Center" Margin="0,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="264"
+            <TextBox HorizontalAlignment="Center" Margin="0,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="264"
                      x:Name="TxtNombre" 
-                     Style="{StaticResource UnderlineTextBox}"
                      Text="*Nombre: "  
                      KeyDown="TxtNombre_KeyDown"/>
-            <TextBox x:Name="TxtGenero" Margin="268,150,262,203"
+            <TextBox x:Name="TxtGenero" Margin="268,150,268,203"
                      Text="*Genero (F/M)" 
-                     Style="{StaticResource UnderlineTextBox}"
                      KeyDown="Genero_KeyDown"/>
             <Button x:Name="BtnGuardarInfoNewUsuario"
                     HorizontalAlignment="Center" Margin="0,243,0,0" VerticalAlignment="Top"
@@ -202,6 +192,75 @@
                 <ComboBoxItem Content="Líder"/>
                 <ComboBoxItem Content="General"/>
             </ComboBox>
+        </Grid>
+
+        <!--Grid Horario-->
+        <Grid Margin="1,84,-1,-383" x:Name="GridHorario" Visibility="Hidden">
+            <!--Botones-->
+            <StackPanel Margin="0,0,634,0">
+                <Button x:Name="BtnMostrarHrs"
+                        Margin="0,40,0,0"
+                        Content="Mostrar Horarios"
+                        Style="{StaticResource CustomButtonStyle}"
+                        Click="BtnMostrarHrs_Click"/>
+                <Button x:Name="BtnGenerarHrs"
+                        Content="Generar Horarios"
+                        Margin="0,40,0,0"
+                        Style="{StaticResource CustomButtonStyle}"
+                        Click="BtnGenerarHrs_Click"/>
+            </StackPanel>
+            <!--Informacion de la ventana Horario-->
+            <Canvas Margin="166,0,0,0" Visibility="Hidden" x:Name="StackMostrarHrs">
+                <TextBlock TextWrapping="Wrap" Text="Yo muestro los horarios"/>
+
+            </Canvas>
+            <Canvas Margin="171,0,-5,0" Visibility="Hidden" x:Name="StackGenerarHrs">
+                <TextBlock TextWrapping="Wrap"  Text="*Nombre" 
+                           Width="66" Height="18"
+                           FontFamily="UD Digi Kyokasho NK-B" FontSize="13" Canvas.Left="542" Canvas.Top="15" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="TxtNombreHr"
+                        TextWrapping="Wrap" 
+                        Text="" 
+                         Width="157" Height="22" Canvas.Top="33" Canvas.Left="451" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock TextWrapping="Wrap"  Text="Día" 
+                           Width="33" Height="16"
+                           FontFamily="UD Digi Kyokasho NK-B" FontSize="13" Canvas.Top="80" Opacity=".5" Canvas.Left="10" RenderTransformOrigin="0.864,0.5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock TextWrapping="Wrap"  Text="Horario" 
+                           Width="62" Height="16"
+                           FontFamily="UD Digi Kyokasho NK-B" FontSize="13" Canvas.Top="80" Opacity=".5" HorizontalAlignment="Left" Canvas.Left="255" VerticalAlignment="Center"/>
+                <TextBlock TextWrapping="Wrap"  Text="Subtotal" 
+                                Width="62" Height="16"
+                                FontFamily="UD Digi Kyokasho NK-B" FontSize="13" Canvas.Top="78" Opacity=".5" HorizontalAlignment="Center" Canvas.Left="546" VerticalAlignment="Top"/>
+                <TextBlock TextWrapping="Wrap"  Text="Lunes"  Width="62" Height="16" FontFamily="UD Digi Kyokasho NK-B" FontSize="13" Canvas.Top="117" Opacity=".5" HorizontalAlignment="Center" Canvas.Left="10" VerticalAlignment="Top"/>
+                <TextBlock TextWrapping="Wrap"  Text="Martes"   Width="62" Height="16" FontFamily="UD Digi Kyokasho NK-B" FontSize="13" Canvas.Top="149" Opacity=".5" HorizontalAlignment="Center" Canvas.Left="10" VerticalAlignment="Top" Margin="0,3,0,0"/>
+                <TextBlock TextWrapping="Wrap"  Text="Miercoles"  Width="90" Height="16" FontFamily="UD Digi Kyokasho NK-B" FontSize="13" Canvas.Top="177" Opacity=".5" HorizontalAlignment="Left" Canvas.Left="10" VerticalAlignment="Center" Margin="0,3,0,0"/>
+                <TextBlock TextWrapping="Wrap"  Text="Jueves"  Width="62" Height="16" FontFamily="UD Digi Kyokasho NK-B" FontSize="13" Canvas.Top="207" Opacity=".5" HorizontalAlignment="Center" Canvas.Left="10" VerticalAlignment="Top" Margin="0,3,0,0"/>
+                <TextBlock TextWrapping="Wrap"  Text="Viernes"  Width="62" Height="16" FontFamily="UD Digi Kyokasho NK-B" FontSize="13" Canvas.Top="241" Opacity=".5" HorizontalAlignment="Center" Canvas.Left="10" VerticalAlignment="Top" Margin="0,3,0,0"/>
+                <TextBlock TextWrapping="Wrap"  Text="Sabado"  Width="62" Height="16" FontFamily="UD Digi Kyokasho NK-B" FontSize="13" Canvas.Top="274" Opacity=".5" HorizontalAlignment="Center" Canvas.Left="10" VerticalAlignment="Top" Margin="0,3,0,0"/>
+                <TextBlock TextWrapping="Wrap"  Text="Domingo"  Width="62" Height="16" FontFamily="UD Digi Kyokasho NK-B" FontSize="13" Canvas.Top="307" Opacity=".5" HorizontalAlignment="Center" Canvas.Left="10" VerticalAlignment="Top" Margin="0,3,0,0"/>
+                <TextBlock TextWrapping="Wrap"  Text="Total"  Width="62" Height="16" FontFamily="UD Digi Kyokasho NK-B" FontSize="13" Canvas.Top="335" Opacity=".5" HorizontalAlignment="Left" Canvas.Left="451" VerticalAlignment="Top"/>
+
+                <TextBox Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="114" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center"></TextBox>
+                <TextBox Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="114" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+                <TextBox Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="139" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
+                <TextBox Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="168" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
+                <TextBox Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="201" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <TextBox Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="230" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
+                <TextBox Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="263" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
+                <TextBox Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="296" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
+                <TextBox Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="296" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,3,0,0"></TextBox>
+                <TextBox Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="263" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
+                <TextBox Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="230" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
+                <TextBox Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="201" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <TextBox Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="168" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
+                <TextBox Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="139" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
+
+                <TextBlock Canvas.Left="451" TextWrapping="Wrap" Canvas.Top="115" HorizontalAlignment="Left" Height="193" VerticalAlignment="Top" Width="153"><Run Text="No sabia si se te facilitaria mas el uso de texbox o texblock asi qu"/><Run Language="es-mx" Text="e"/><Run Text=" lo deje en blanco, aquí ira la suma de hrs trabajadas por día despues se sumaran al total de horas chambeadas, y base al total hacer el pago de la nomina            *ELIMINA ESTE RECUADRO CUANDO LO VEAS*"/></TextBlock>
+
+
+
+            </Canvas>
+
         </Grid>
 
     </Grid>
