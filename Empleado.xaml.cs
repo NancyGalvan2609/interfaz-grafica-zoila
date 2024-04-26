@@ -34,6 +34,7 @@ namespace interfaz_grafica_zoila
         private void BtnHome_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             GridManuales.Visibility = Visibility.Hidden;
+            GridNominas.Visibility = Visibility.Hidden;
             GridHome.Visibility = Visibility.Visible;
         }
 
@@ -55,6 +56,8 @@ namespace interfaz_grafica_zoila
 
         private void Nomina_Click(object sender, RoutedEventArgs e)
         {
+            GridHome.Visibility = Visibility.Hidden;
+            GridNominas.Visibility = Visibility.Visible;
 
         }
 
