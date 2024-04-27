@@ -35,6 +35,7 @@ namespace interfaz_grafica_zoila
         {
             GridManuales.Visibility = Visibility.Hidden;
             GridNominas.Visibility = Visibility.Hidden;
+            GridHorario.Visibility = Visibility.Hidden;
             GridHome.Visibility = Visibility.Visible;
         }
 
@@ -68,7 +69,8 @@ namespace interfaz_grafica_zoila
 
         private void Horario_Click(object sender, RoutedEventArgs e)
         {
-
+            GridHome.Visibility= Visibility.Hidden;
+            GridHorario.Visibility= Visibility.Visible;
         }
 
         private void Manuales_Click_1(object sender, RoutedEventArgs e)
