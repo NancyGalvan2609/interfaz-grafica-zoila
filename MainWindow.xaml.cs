@@ -62,33 +62,43 @@ namespace interfaz_grafica_zoila
 
                     if (count > 0)
                     {
-                        query = "SELECT Tipo FROM Empleado WHERE Nombre = @nombre";
+                        query = "SELECT ID, Tipo, Nombre FROM Empleado WHERE Nombre = @nombre";
                         cmd = new MySqlCommand(query, connection);
                         cmd.Parameters.AddWithValue("@nombre", txtUsername.Text);
 
-                        string tipoEmpleado = cmd.ExecuteScalar().ToString();
-
-                        switch (tipoEmpleado)
+                        MySqlDataReader reader = cmd.ExecuteReader();
+                        if (reader.Read())
                         {
-                            case "General":
-                                MessageBox.Show("Inicio de sesión exitoso como empleado general!");
-                                Empleado ventanaEmpleado = new Empleado();
-                                ventanaEmpleado.Show();
-                                break;
-                            case "Lider":
-                                MessageBox.Show("Inicio de sesión exitoso como líder!");
-                                Lider ventanaLider = new Lider();
-                                ventanaLider.Show();
-                                break;
-                            case "Gerente":
-                                MessageBox.Show("Inicio de sesión exitoso como gerente!");
-                                Admin ventanaGerente = new Admin();
-                                ventanaGerente.Show();
-                                break;
-                            default:
-                                MessageBox.Show("Tipo de empleado no válido.");
-                                break;
+                            int idEmpleado = reader.GetInt32("ID");
+                            string tipoEmpleado = reader.GetString("Tipo");
+                            string nombreEmpleado = reader.GetString("Nombre");
+
+                            switch (tipoEmpleado)
+                            {
+                                case "General":
+                                    MessageBox.Show("Inicio de sesión exitoso como empleado general!");
+                                    Empleado ventanaEmpleado = new Empleado(idEmpleado, nombreEmpleado);
+                                    ventanaEmpleado.Show();
+                                    this.Close();
+                                    break;
+                                case "Lider":
+                                    MessageBox.Show("Inicio de sesión exitoso como líder!");
+                                    Lider ventanaLider = new Lider();
+                                    //ventanaLider.Show();
+                                    this.Close();
+                                    break;
+                                case "Gerente":
+                                    MessageBox.Show("Inicio de sesión exitoso como gerente!");
+                                    Admin ventanaGerente = new Admin();
+                                    ventanaGerente.Show();
+                                    this.Close();
+                                    break;
+                                default:
+                                    MessageBox.Show("Tipo de empleado no válido.");
+                                    break;
+                            }
                         }
+                        reader.Close();
                     }
                     else
                     {

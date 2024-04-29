@@ -215,7 +215,7 @@
 
             </Canvas>
             <Canvas Margin="171,0,-5,0" Visibility="Hidden" x:Name="StackGenerarHrs">
-                <TextBlock TextWrapping="Wrap"  Text="*Nombre" 
+                <TextBlock TextWrapping="Wrap"  Text="*ID Empleado" 
                            Width="66" Height="18"
                            FontFamily="UD Digi Kyokasho NK-B" FontSize="13" Canvas.Left="542" Canvas.Top="15" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <TextBox x:Name="TxtNombreHr"
@@ -240,23 +240,24 @@
                 <TextBlock TextWrapping="Wrap"  Text="Domingo"  Width="62" Height="16" FontFamily="UD Digi Kyokasho NK-B" FontSize="13" Canvas.Top="307" Opacity=".5" HorizontalAlignment="Center" Canvas.Left="10" VerticalAlignment="Top" Margin="0,3,0,0"/>
                 <TextBlock TextWrapping="Wrap"  Text="Total"  Width="62" Height="16" FontFamily="UD Digi Kyokasho NK-B" FontSize="13" Canvas.Top="335" Opacity=".5" HorizontalAlignment="Left" Canvas.Left="451" VerticalAlignment="Top"/>
 
-                <TextBox Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="114" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center"></TextBox>
-                <TextBox Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="114" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
-                <TextBox Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="139" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
-                <TextBox Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="168" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
-                <TextBox Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="201" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <TextBox Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="230" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
-                <TextBox Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="263" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
-                <TextBox Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="296" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
-                <TextBox Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="296" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,3,0,0"></TextBox>
-                <TextBox Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="263" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
-                <TextBox Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="230" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
-                <TextBox Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="201" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <TextBox Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="168" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
-                <TextBox Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="139" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
+                <TextBox x:Name="TxtInicioLunes" Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="114" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center"></TextBox>
+                <TextBox x:Name="TxtInicioMartes" Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="139" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
+                <TextBox x:Name="TxtInicioMiercoles" Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="168" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
+                <TextBox x:Name="TxtInicioJueves" Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="201" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <TextBox x:Name="TxtInicioViernes" Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="230" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
+                <TextBox x:Name="TxtInicioSabado" Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="263" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
+                <TextBox x:Name="TxtInicioDomingo" Canvas.Left="207" TextWrapping="Wrap" Text="" Canvas.Top="296" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,3,0,0"></TextBox>
+                <TextBox x:Name="TxtFinLunes" Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="114" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+                <TextBox x:Name="TxtFinMartes" Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="139" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
+                <TextBox x:Name="TxtFinMiercoles" Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="168" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
+                <TextBox x:Name="TxtFinJueves" Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="201" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <TextBox x:Name="TxtFinViernes" Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="230" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
+                <TextBox x:Name="TxtFinSabado" Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="263" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
+                <TextBox x:Name="TxtFinDomingo" Canvas.Left="280" TextWrapping="Wrap" Text="" Canvas.Top="296" Width="49" Height="19" FontFamily="UD Digi Kyokasho NK-B" FontSize="11" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0"></TextBox>
 
-                <TextBlock Canvas.Left="451" TextWrapping="Wrap" Canvas.Top="115" HorizontalAlignment="Left" Height="193" VerticalAlignment="Top" Width="153"><Run Text="No sabia si se te facilitaria mas el uso de texbox o texblock asi qu"/><Run Language="es-mx" Text="e"/><Run Text=" lo deje en blanco, aquí ira la suma de hrs trabajadas por día despues se sumaran al total de horas chambeadas, y base al total hacer el pago de la nomina            *ELIMINA ESTE RECUADRO CUANDO LO VEAS*"/></TextBlock>
+                
 
+                <Button Content="Guardar Horas" Canvas.Left="10" Canvas.Top="350" Click="BtnGuardarHoras_Click"/>
 
 
             </Canvas>

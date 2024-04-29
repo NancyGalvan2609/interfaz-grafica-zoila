@@ -26,6 +26,54 @@ namespace interfaz_grafica_zoila
 
 
         }
+
+        private List<HorarioEmpleado> ObtenerHorarioEmpleadoDesdeBD()
+        {
+            List<HorarioEmpleado> horarios = new List<HorarioEmpleado>();
+
+            string connectionString = "server=localhost;database=empresa;uid=root;password=root;";
+            string query = "SELECT EmpleadoID, LunesInicio, LunesFin, " +
+                           "MartesInicio, MartesFin, MiércolesInicio, MiércolesFin, " +
+                           "JuevesInicio, JuevesFin, ViernesInicio, ViernesFin, " +
+                           "SábadoInicio, SábadoFin, DomingoInicio, DomingoFin " +
+                           "FROM Horarios";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    connection.Open();
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            HorarioEmpleado horario = new HorarioEmpleado();
+                            horario.EmpleadoID = reader.GetInt32("EmpleadoID");
+                            horario.LunesInicio = reader.GetTimeSpan("LunesInicio");
+                            horario.LunesFin = reader.GetTimeSpan("LunesFin");
+                            horario.MartesInicio = reader.GetTimeSpan("MartesInicio");
+                            horario.MartesFin = reader.GetTimeSpan("MartesFin");
+                            horario.MiercolesInicio = reader.GetTimeSpan("MiércolesInicio");
+                            horario.MiercolesFin = reader.GetTimeSpan("MiércolesFin");
+                            horario.JuevesInicio = reader.GetTimeSpan("JuevesInicio");
+                            horario.JuevesFin = reader.GetTimeSpan("JuevesFin");
+                            horario.ViernesInicio = reader.GetTimeSpan("ViernesInicio");
+                            horario.ViernesFin = reader.GetTimeSpan("ViernesFin");
+                            horario.SabadoInicio = reader.GetTimeSpan("SábadoInicio");
+                            horario.SabadoFin = reader.GetTimeSpan("SábadoFin");
+                            horario.DomingoInicio = reader.GetTimeSpan("DomingoInicio");
+                            horario.DomingoFin = reader.GetTimeSpan("DomingoFin");
+
+                            horarios.Add(horario);
+                        }
+                    }
+                }
+            }
+
+            return horarios;
+        }
+
+
         //Movimiento de la pantalla
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -114,6 +162,21 @@ namespace interfaz_grafica_zoila
                     MessageBox.Show("El valor del género debe ser 'Masculino' o 'Femenino'.");
                     return; 
                 }
+
+                double salarioPorHora;
+                switch (tipoEmpleado)
+                {
+                    case "General":
+                        salarioPorHora = 41.50; // Salario para empleados generales
+                        break;
+                    case "Lider":
+                        salarioPorHora = 65.50; // Salario para líderes
+                        break;
+                    default:
+                        salarioPorHora = 0; // Establecer un valor predeterminado o manejar el caso por defecto según sea necesario
+                        break;
+                }
+
                 // Generar una contraseña aleatoria
                 string password = GenerarContraseñaAleatoria();
                 // Conectar a la base de datos
@@ -123,10 +186,11 @@ namespace interfaz_grafica_zoila
                     connection.Open();
 
                     // Insertar los datos del nuevo usuario en la tabla Empleado
-                    string query = "INSERT INTO Empleado (Nombre, Genero, Contraseña, Tipo) VALUES (@nombre, @genero, @contraseña, @tipo)";
+                    string query = "INSERT INTO Empleado (Nombre, Genero, Salario, Contraseña, Tipo) VALUES (@nombre, @genero, @salario ,@contraseña, @tipo)";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
                     cmd.Parameters.AddWithValue("@nombre", TxtNombre.Text);
                     cmd.Parameters.AddWithValue("@genero", genero);
+                    cmd.Parameters.AddWithValue("@salario", salarioPorHora);
                     cmd.Parameters.AddWithValue("@contraseña", password);
                     cmd.Parameters.AddWithValue("@tipo", tipoEmpleado);
                     cmd.ExecuteNonQuery();
@@ -201,12 +265,102 @@ namespace interfaz_grafica_zoila
         {
             StackGenerarHrs.Visibility = Visibility.Hidden;
             StackMostrarHrs.Visibility = Visibility.Visible;
+            ObtenerHorarioEmpleadoDesdeBD();
         }
 
         private void BtnGenerarHrs_Click(object sender, RoutedEventArgs e)
         {
             StackMostrarHrs.Visibility = Visibility.Hidden;
             StackGenerarHrs.Visibility = Visibility.Visible;
+        }
+
+
+        private void BtnGuardarHoras_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Obtener el ID del empleado
+                int idEmpleado;
+                if (!int.TryParse(TxtNombreHr.Text, out idEmpleado))
+                {
+                    MessageBox.Show("Por favor, ingrese el ID válido del empleado.");
+                    return;
+                }
+
+
+                // Crear una conexión a la base de datos
+                string connectionString = "server=localhost;database=empresa;uid=root;password=root;";
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Guardar las horas ingresadas para cada día de la semana en la base de datos
+          
+                    try
+                    {
+                        string query = @"INSERT INTO Horarios (EmpleadoID, LunesInicio, LunesFin, MartesInicio, MartesFin, MiércolesInicio, MiércolesFin, JuevesInicio, JuevesFin, ViernesInicio, ViernesFin, SábadoInicio, SábadoFin, DomingoInicio, DomingoFin) 
+                     VALUES (@EmpleadoID, @inicioLunes, @finLunes, @inicioMartes, @finMartes, @inicioMiércoles, @finMiércoles, @inicioJueves, @finJueves, @inicioViernes, @finViernes, @inicioSábado, @finSábado, @inicioDomingo, @finDomingo)";
+                        MySqlCommand cmd = new MySqlCommand(query, connection);
+                        cmd.Parameters.AddWithValue("@EmpleadoID", idEmpleado);
+                        cmd.Parameters.AddWithValue("@inicioLunes", TxtInicioLunes.Text);
+                        cmd.Parameters.AddWithValue("@finLunes", TxtFinLunes.Text);
+                        cmd.Parameters.AddWithValue("@inicioMartes", TxtInicioMartes.Text);
+                        cmd.Parameters.AddWithValue("@finMartes", TxtFinMartes.Text);
+                        cmd.Parameters.AddWithValue("@inicioMiércoles", TxtInicioMiercoles.Text);
+                        cmd.Parameters.AddWithValue("@finMiércoles", TxtFinMiercoles.Text);
+                        cmd.Parameters.AddWithValue("@inicioJueves", TxtInicioJueves.Text);
+                        cmd.Parameters.AddWithValue("@finJueves", TxtFinJueves.Text);
+                        cmd.Parameters.AddWithValue("@inicioViernes", TxtInicioViernes.Text);
+                        cmd.Parameters.AddWithValue("@finViernes", TxtFinViernes.Text);
+                        cmd.Parameters.AddWithValue("@inicioSábado", TxtInicioSabado.Text);
+                        cmd.Parameters.AddWithValue("@finSábado", TxtFinSabado.Text);
+                        cmd.Parameters.AddWithValue("@inicioDomingo", TxtInicioDomingo.Text);
+                        cmd.Parameters.AddWithValue("@finDomingo", TxtFinDomingo.Text);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (MySqlException ex)
+                    {
+                        if (ex.Number == 1062)
+                        {
+                            string updateQuery = @"UPDATE Horarios 
+                               SET LunesInicio = @inicioLunes, LunesFin = @finLunes,
+                                   MartesInicio = @inicioMartes, MartesFin = @finMartes,
+                                   MiércolesInicio = @inicioMiércoles, MiércolesFin = @finMiércoles,
+                                   JuevesInicio = @inicioJueves, JuevesFin = @finJueves,
+                                   ViernesInicio = @inicioViernes, ViernesFin = @finViernes,
+                                   SábadoInicio = @inicioSábado, SábadoFin = @finSábado,
+                                   DomingoInicio = @inicioDomingo, DomingoFin = @finDomingo
+                               WHERE EmpleadoID = @EmpleadoID";
+                            MySqlCommand updateCmd = new MySqlCommand(updateQuery, connection);
+                            updateCmd.Parameters.AddWithValue("@EmpleadoID", idEmpleado);
+                            updateCmd.Parameters.AddWithValue("@inicioLunes", TxtInicioLunes.Text);
+                            updateCmd.Parameters.AddWithValue("@finLunes", TxtFinLunes.Text);
+                            updateCmd.Parameters.AddWithValue("@inicioMartes", TxtInicioMartes.Text);
+                            updateCmd.Parameters.AddWithValue("@finMartes", TxtFinMartes.Text);
+                            updateCmd.Parameters.AddWithValue("@inicioMiércoles", TxtInicioMiercoles.Text);
+                            updateCmd.Parameters.AddWithValue("@finMiércoles", TxtFinMiercoles.Text);
+                            updateCmd.Parameters.AddWithValue("@inicioJueves", TxtInicioJueves.Text);
+                            updateCmd.Parameters.AddWithValue("@finJueves", TxtFinJueves.Text);
+                            updateCmd.Parameters.AddWithValue("@inicioViernes", TxtInicioViernes.Text);
+                            updateCmd.Parameters.AddWithValue("@finViernes", TxtFinViernes.Text);
+                            updateCmd.Parameters.AddWithValue("@inicioSábado", TxtInicioSabado.Text);
+                            updateCmd.Parameters.AddWithValue("@finSábado", TxtFinSabado.Text);
+                            updateCmd.Parameters.AddWithValue("@inicioDomingo", TxtInicioDomingo.Text);
+                            updateCmd.Parameters.AddWithValue("@finDomingo", TxtFinDomingo.Text);
+                            updateCmd.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            // Manejar otros errores...
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al intentar guardar las horas: " + ex.Message);
+            }
         }
 
 

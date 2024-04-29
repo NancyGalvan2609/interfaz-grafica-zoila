@@ -49,9 +49,8 @@
                     VerticalAlignment="Top" HorizontalAlignment="Left" Margin="274,34,0,0" TextWrapping="Wrap" 
                     Text="Cerrar Sesión" FontFamily="UD Digi Kyokasho NK-B" TextDecorations="Underline" Foreground="White"
                     Cursor="Hand" MouseLeftButtonDown="CerrarSesion_MouseLeftButtonDown" Width="125" Grid.Column="1"/>
-            <TextBlock HorizontalAlignment="Left" Margin="120,12,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"
-                   Text="Welcome!"
-                   FontFamily="UD Digi Kyokasho NK-B" FontWeight="Bold" FontSize="18"/>
+            <TextBlock x:Name="UserName" HorizontalAlignment="Left" Margin="120,12,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"
+                       FontFamily="UD Digi Kyokasho NK-B" FontWeight="Bold" FontSize="18"/>
             <Button x:Name="CloseWindow"
                 HorizontalAlignment="Left" Margin="319,5,0,0" VerticalAlignment="Top"
                 Background="#6D2B0A"
@@ -146,8 +145,8 @@
 
         <!--Grid Nóminas-->
         <Grid x:Name="GridNominas" Margin="0,101,0,0" Visibility="Hidden">
-            <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" 
-                       Text="NÓMINA" VerticalAlignment="Top"
+            <TextBlock x:Name="txtNomina" HorizontalAlignment="Center" Text="NOMINA" Margin="0,10,0,0" TextWrapping="Wrap" 
+                         VerticalAlignment="Top"
                        FontFamily="UD Digi Kyokasho NK-B" FontSize="25"/>
 
 
@@ -158,8 +157,10 @@
                     Margin="632,370,10,23"
                     Style="{StaticResource CustomButtonStyle}">
             </Button>
-            <TextBlock HorizontalAlignment="Left" Margin="153,138,0,0" TextWrapping="Wrap" Text="Hola, aquí habrá un nómina *Pensando...*" VerticalAlignment="Top" FontSize="25" Height="201" Width="227"/>
-
+            <TextBlock x:Name="txtHorasTrabajadas" HorizontalAlignment="Left" Margin="153,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="25" Height="201" Width="227"/>
+            <TextBlock x:Name="txtDescuentoSeguro" HorizontalAlignment="Left" Margin="153,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="25" Height="201" Width="227"/>
+            <TextBlock x:Name="txtTotalNeto" HorizontalAlignment="Left" Margin="153,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="25" Height="201" Width="227"/>
+            <TextBlock x:Name="txtTotalDespuesISR" HorizontalAlignment="Left" Margin="153,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="25" Height="201" Width="227"/>
         </Grid>
 
         <!--Grid Manuales-->
@@ -198,26 +199,21 @@
         <!--Grid Horario-->
         <Grid x:Name="GridHorario" Margin="0,96,0,0" Visibility="Hidden">
             <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" 
-                       Text="Horario Semanal" VerticalAlignment="Top"
-                       FontFamily="UD Digi Kyokasho NK-B" FontSize="25"/>
-            <TextBlock HorizontalAlignment="Left" Margin="30,84,0,0" TextWrapping="Wrap" 
-                       Text="Nombre del empleado (numero?)" VerticalAlignment="Top" Height="53" Width="104"
-                       FontFamily="UD Digi Kyokasho NK-B" FontSize="15"/>
-            <!--&#xA; significa salto de linea-->
-            <TextBlock HorizontalAlignment="Left" Margin="190,0,0,0" TextWrapping="Wrap" 
-                       Text="Aquí ira el horario semanal del empleado &#xA;EjEMPLO&#xA;&#xA;Domingo(28/04/2024)   12:00 20:00     MES    8hrs"
-                       VerticalAlignment="Center" Height="286" Width="362"
-                       FontFamily="UD Digi Kyokasho NK-B" FontSize="13"/>
-            <Button Content="Solicitar vacaciones"
-                    Margin="623,84,20,336"
-                    Style="{StaticResource CustomButtonStyle}"/>
-            <Button Content="Permisos"
-                    Margin="623,193,20,227"
-                    Style="{StaticResource CustomButtonStyle}"/>
-            <Button Content="Incapacidad"
-                    Margin="623,300,20,120"
-                    Style="{StaticResource CustomButtonStyle}"/>
+               Text="Horario Semanal" VerticalAlignment="Top"
+               FontFamily="UD Digi Kyokasho NK-B" FontSize="25"/>
+            <TextBlock x:Name ="txtNombreEmpleado" HorizontalAlignment="Left" Margin="30,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="104"
+               FontFamily="UD Digi Kyokasho NK-B" FontSize="15"/>
+
+            <!-- Aquí reemplaza los TextBlock con un DataGrid -->
+            <DataGrid x:Name="dataGridHorario" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="190,0,0,0"
+              Height="286" Width="362" AutoGenerateColumns="True"
+              FontFamily="UD Digi Kyokasho NK-B" FontSize="13"/>
+
+            <Button Content="Solicitar vacaciones" Margin="623,84,20,336" Style="{StaticResource CustomButtonStyle}"/>
+            <Button Content="Permisos" Margin="623,193,20,227" Style="{StaticResource CustomButtonStyle}"/>
+            <Button Content="Incapacidad" Margin="623,300,20,120" Style="{StaticResource CustomButtonStyle}"/>
         </Grid>
+
 
     </Grid>
 
