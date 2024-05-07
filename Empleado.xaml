@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:interfaz_grafica_zoila"
         mc:Ignorable="d"
         AllowsTransparency="True"
+        ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         MouseDown="Window_MouseDown"
