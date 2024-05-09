@@ -18,7 +18,7 @@
             <Setter Property="Background" Value="#BD7755"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="FontFamily" Value="UD Digi Kyokasho NK-B"/>
-            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontSize" Value="15"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -89,7 +89,7 @@
         </Grid>
 
         <!--Grid Home-->
-        <Grid x:Name="GridHome" Margin="0,82,0,0" Visibility="Visible">
+        <Grid x:Name="GridHome" Margin="0,82,0,0" Visibility="Visible" Cursor="">
             <!--Definimos las columnas utilizadas-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"></ColumnDefinition>
@@ -213,6 +213,24 @@
             <Button Content="Solicitar vacaciones" Margin="623,84,20,336" Style="{StaticResource CustomButtonStyle}"/>
             <Button Content="Permisos" Margin="623,193,20,227" Style="{StaticResource CustomButtonStyle}"/>
             <Button Content="Incapacidad" Margin="623,300,20,120" Style="{StaticResource CustomButtonStyle}"/>
+        </Grid>
+
+        <!--Grid Tabla del Dia-->
+        <Grid x:Name="GridTDia" Margin="0,82,0,0" Visibility="Hidden">
+            <!--Botones para desplazarse en las ventanas-->
+            <Button HorizontalAlignment="Left" Margin="16,52,0,0" VerticalAlignment="Top"
+                    x:Name="btnSemanalTD"
+                    Content="Semanal"
+                    Click="btnSemanalTD_Click"
+                    Style="{StaticResource CustomButtonStyle}"/>
+            <Button HorizontalAlignment="Left" Margin="16,116,0,0" VerticalAlignment="Top"
+                    x:Name="BtnFinsemanaTD"
+                    Content="Fin de semana"
+                    Click="BtnFinsemanaTD_Click"
+                    Style="{StaticResource CustomButtonStyle}"/>
+            <Image x:Name="ImgTablaD"  Source="Imagen/MokaAlmacen.png" Margin="110,-10,-14,10" Opacity="0.8" Visibility="Hidden" Grid.ColumnSpan="2"></Image>
+            <Image x:Name="ImgTbl1"  Source="Imagen/tabla1fin.png" Margin="224,10,101,12" Visibility="Hidden" ></Image>
+            <Image x:Name="ImgTabl2" Source="Imagen/tabla2.png" Margin="250,-10,127,9" Visibility="Hidden"></Image>
         </Grid>
 
 

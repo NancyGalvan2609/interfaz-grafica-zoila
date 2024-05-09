@@ -203,5 +203,14 @@
   <ItemGroup>
     <Resource Include="Imagen\LogoMooka.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagen\MokaAlmacen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagen\tabla2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagen\tabla1fin.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

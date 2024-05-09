@@ -247,6 +247,7 @@ namespace interfaz_grafica_zoila
             GridManuales.Visibility = Visibility.Hidden;
             GridNominas.Visibility = Visibility.Hidden;
             GridHorario.Visibility = Visibility.Hidden;
+            GridTDia.Visibility = Visibility.Hidden;
             GridHome.Visibility = Visibility.Visible;
         }
 
@@ -299,7 +300,25 @@ namespace interfaz_grafica_zoila
 
         private void BtnTabla_Click(object sender, RoutedEventArgs e)
         {
+            GridHome.Visibility = Visibility.Hidden;
+            GridTDia.Visibility = Visibility.Visible;
+            ImgTbl1.Visibility = Visibility.Hidden;
+            ImgTabl2.Visibility = Visibility.Hidden;
+            ImgTablaD.Visibility = Visibility.Visible;
+        }
 
+        private void btnSemanalTD_Click(object sender, RoutedEventArgs e)
+        {
+            ImgTablaD.Visibility = Visibility.Hidden;
+            ImgTabl2.Visibility = Visibility.Visible;
+            ImgTbl1.Visibility = Visibility.Hidden;
+        }
+
+        private void BtnFinsemanaTD_Click(object sender, RoutedEventArgs e)
+        {
+            ImgTablaD.Visibility = Visibility.Hidden;
+            ImgTbl1.Visibility = Visibility.Visible;
+            ImgTabl2.Visibility = Visibility.Hidden;
         }
 
         private void BtnPromo_Click(object sender, RoutedEventArgs e)
@@ -316,5 +335,7 @@ namespace interfaz_grafica_zoila
         {
 
         }
+
+        
     }
 }
