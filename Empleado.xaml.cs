@@ -248,6 +248,7 @@ namespace interfaz_grafica_zoila
             GridTDia.Visibility = Visibility.Hidden;
             GridPromo.Visibility = Visibility.Hidden;
             ImagenManuales();
+            GridObjetivos.Visibility = Visibility.Hidden;
             GridHome.Visibility = Visibility.Visible;
         }
 
@@ -295,7 +296,8 @@ namespace interfaz_grafica_zoila
 
         private void Objetivos_Click(object sender, RoutedEventArgs e)
         {
-
+            GridHome.Visibility = Visibility.Hidden;
+            GridObjetivos.Visibility = Visibility.Visible;
         }
 
         private void BtnTabla_Click(object sender, RoutedEventArgs e)

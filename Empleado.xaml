@@ -89,7 +89,7 @@
         </Grid>
 
         <!--Grid Home-->
-        <Grid x:Name="GridHome" Margin="0,82,0,0" Visibility="Visible" Cursor="">
+        <Grid x:Name="GridHome" Margin="0,82,0,0" Visibility="Hidden" Cursor="">
             <!--Definimos las columnas utilizadas-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"></ColumnDefinition>
@@ -276,13 +276,63 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            
+
             <Image x:Name="ImgPromos1" Source="Imagen/Promos1.png" Visibility="Visible" Margin="174,72,174,26"></Image>
             <Image x:Name="ImgPromos2" Source="Imagen/Promos2.jpeg" Visibility="Hidden" Margin="200,71,194,37"></Image>
             <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" 
                        Text="Promociones del mes" FontSize="40" FontFamily="UD Digi Kyokasho NK-B"
                        VerticalAlignment="Top"/>
         </Grid>
+
+        <!--Grid Objetivos-->
+        <Grid x:Name="GridObjetivos" Margin="10,82,0,0" Visibility="Visible">
+            <TextBlock HorizontalAlignment="Center" Margin="0,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
+                       Text="Objetivos" FontSize="35" FontFamily="UD Digi Kyokasho NK-B"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
+                       Text="Proyección(unidad)" FontSize="20" FontFamily="UD Digi Kyokasho NK-B"/>
+            <TextBlock HorizontalAlignment="Left" Margin="151,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
+                       Text="Objetivo" FontSize="20" FontFamily="UD Digi Kyokasho NK-B"/>
+            <TextBlock HorizontalAlignment="Left" Margin="535,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
+                        Text="Resultados" FontSize="20" FontFamily="UD Digi Kyokasho NK-B"/>
+            <Border BorderBrush="Black" BorderThickness="2" Padding="5" Margin="103,167,511,234">
+                <TextBlock HorizontalAlignment="Left" Margin="31,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
+                        Text="Café Grande" FontSize="20" FontFamily="UD Digi Kyokasho NK-B"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" Padding="5" Margin="103,234,511,167">
+                <TextBlock HorizontalAlignment="Left" Margin="31,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
+                        Text="Postres" FontSize="20" FontFamily="UD Digi Kyokasho NK-B"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" Padding="5" Margin="103,298,511,103">
+                <TextBlock HorizontalAlignment="Left" Margin="7,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
+                        Text="Combo Comida" FontSize="20" FontFamily="UD Digi Kyokasho NK-B" Width="163"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" Padding="5" Margin="279,167,288,234">
+                <TextBlock HorizontalAlignment="Left" Margin="90,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
+                        Text="40" FontSize="20" FontFamily="UD Digi Kyokasho NK-B"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" Padding="5" Margin="279,234,288,167">
+                <TextBlock HorizontalAlignment="Left" Margin="90,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
+                        Text="30" FontSize="20" FontFamily="UD Digi Kyokasho NK-B"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" Padding="5" Margin="279,298,288,103">
+                <TextBlock HorizontalAlignment="Left" Margin="89,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
+                        Text="10" FontSize="20" FontFamily="UD Digi Kyokasho NK-B"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" Padding="5" Margin="502,167,112,234"></Border>
+            <Border BorderBrush="Black" BorderThickness="2" Padding="5" Margin="502,234,112,167"></Border>
+            <Border BorderBrush="Black" BorderThickness="2" Padding="5" Margin="502,298,112,103"></Border>
+            <Rectangle HorizontalAlignment="Center" Height="72" Margin="0,386,0,0" Stroke="Brown" Fill="#B78366" VerticalAlignment="Top" Width="380"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,399,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Center"
+                       Text="Al completar tu meta llevate un postre al final del turno!" 
+                       FontSize="17" FontFamily="UD Digi Kyokasho NK-B" Width="336"/>
+            <TextBlock HorizontalAlignment="Left" Margin="-46,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Center"
+                       Text="Area:  Cajas" FontSize="17" FontFamily="UD Digi Kyokasho NK-B" Width="226" Foreground="Gray" Height="24"/>
+            <TextBlock HorizontalAlignment="Left" Margin="601,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Center"
+                       Text="23/05/2025" FontSize="17" FontFamily="UD Digi Kyokasho NK-B" Width="226" Foreground="Gray" Height="24"/>
+            <Rectangle HorizontalAlignment="Left" Height="2" Margin="-17,119,0,0" Stroke="Black" VerticalAlignment="Top" Width="828"/>
+
+        </Grid>
+
     </Grid>
 
 
