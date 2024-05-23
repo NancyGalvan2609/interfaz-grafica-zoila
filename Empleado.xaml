@@ -89,7 +89,7 @@
         </Grid>
 
         <!--Grid Home-->
-        <Grid x:Name="GridHome" Margin="0,82,0,0" Visibility="Hidden" Cursor="">
+        <Grid x:Name="GridHome" Margin="0,82,0,0" Visibility="Visible" Cursor="">
             <!--Definimos las columnas utilizadas-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"></ColumnDefinition>
@@ -285,7 +285,7 @@
         </Grid>
 
         <!--Grid Objetivos-->
-        <Grid x:Name="GridObjetivos" Margin="10,82,0,0" Visibility="Visible">
+        <Grid x:Name="GridObjetivos" Margin="10,82,0,0" Visibility="Hidden">
             <TextBlock HorizontalAlignment="Center" Margin="0,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
                        Text="Objetivos" FontSize="35" FontFamily="UD Digi Kyokasho NK-B"/>
             <TextBlock HorizontalAlignment="Center" Margin="0,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
@@ -331,6 +331,38 @@
                        Text="23/05/2025" FontSize="17" FontFamily="UD Digi Kyokasho NK-B" Width="226" Foreground="Gray" Height="24"/>
             <Rectangle HorizontalAlignment="Left" Height="2" Margin="-17,119,0,0" Stroke="Black" VerticalAlignment="Top" Width="828"/>
 
+        </Grid>
+
+        <!--Grid Inventario-->
+        <Grid x:Name="GridInventario" Margin="0,82,0,0" Visibility="Hidden">
+            <TextBlock HorizontalAlignment="Left" Margin="429,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
+                       Text="Inventario" FontSize="35" FontFamily="UD Digi Kyokasho NK-B"/>
+            <Border  Background="#B78366" BorderBrush="Black" 
+                BorderThickness="2" CornerRadius="20"  Margin="30,89,600,85" />
+            <TextBlock HorizontalAlignment="Left" Margin="36,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Center"
+                       Text="Hay poca/nula existencia de los siguientes productos, ofrece alternativas similares a estos productos" 
+                       FontSize="17" FontFamily="UD Digi Kyokasho NK-B" Width="147" Height="180"/>
+            <Border  Background="White" BorderBrush="Black" 
+                BorderThickness="2" CornerRadius="20"  Margin="265,140,400,168" />
+            <Border  Background="White" BorderBrush="Black" 
+                BorderThickness="2" CornerRadius="20"  Margin="449,140,216,168" />
+            <Border  Background="White" BorderBrush="Black" 
+                BorderThickness="2" CornerRadius="20"  Margin="619,140,46,168" />
+            <TextBlock HorizontalAlignment="Left" Margin="299,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
+                       Text="Vas 16 oz" FontSize="15" FontFamily="UD Digi Kyokasho NK-B"/>
+            <TextBlock HorizontalAlignment="Left" Margin="468,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
+                        Text="Azúcar regular" FontSize="15" FontFamily="UD Digi Kyokasho NK-B"/>
+            <TextBlock HorizontalAlignment="Left" Margin="665,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
+                        Text="Tocino" FontSize="15" FontFamily="UD Digi Kyokasho NK-B"/>
+            <TextBlock HorizontalAlignment="Left" Margin="312,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
+                       Text="50 pz" FontSize="15" FontFamily="UD Digi Kyokasho NK-B" Foreground="Red"/>
+            <TextBlock HorizontalAlignment="Left" Margin="468,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
+                        Text="1 caja(sobres)" FontSize="15" FontFamily="UD Digi Kyokasho NK-B" Foreground="Red"/>
+            <TextBlock HorizontalAlignment="Left" Margin="665,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  
+                        Text="1/2 kg" FontSize="15" FontFamily="UD Digi Kyokasho NK-B" Foreground="Red"/>
+            <Image Source="Imagen/VasoCafe.png" Margin="274,163,415,189"></Image>
+            <Image Source="Imagen/Azucar.png" Margin="458,166,231,186"></Image>
+            <Image Source="Imagen/Tocino.png" Margin="631,166,58,186"></Image>
         </Grid>
 
     </Grid>

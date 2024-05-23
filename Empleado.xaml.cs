@@ -249,6 +249,7 @@ namespace interfaz_grafica_zoila
             GridPromo.Visibility = Visibility.Hidden;
             ImagenManuales();
             GridObjetivos.Visibility = Visibility.Hidden;
+            GridInventario.Visibility = Visibility.Hidden;
             GridHome.Visibility = Visibility.Visible;
         }
 
@@ -331,7 +332,8 @@ namespace interfaz_grafica_zoila
 
         private void BtnInventario_Click(object sender, RoutedEventArgs e)
         {
-
+            GridHome.Visibility = Visibility.Hidden;
+            GridInventario.Visibility = Visibility.Visible;
         }
 
         private void BtnComida_Click(object sender, RoutedEventArgs e)
