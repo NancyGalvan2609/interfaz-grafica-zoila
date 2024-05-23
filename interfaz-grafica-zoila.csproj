@@ -212,5 +212,26 @@
   <ItemGroup>
     <Resource Include="Imagen\tabla1fin.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagen\Flecha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagen\MSandwichH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagen\MCafe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagen\mPastel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagen\mFrappe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagen\Promos2.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagen\Promos1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

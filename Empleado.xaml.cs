@@ -202,8 +202,6 @@ namespace interfaz_grafica_zoila
             double nomina = neto - (isr+seguro);
             
 
-
-            // Aquí puedes mostrar la nómina en un TextBox u otro control
             txtTotalNeto.Text = "Sueldo neto: " + neto.ToString("C2"); // Formatear como moneda
             txtTotalDespuesISR.Text = "Sueldo despues de impuestos: " + nomina.ToString("C2");
             txtHorasTrabajadas.Text = horasTrabajadas.ToString() + " Horas trabajadas";
@@ -248,6 +246,8 @@ namespace interfaz_grafica_zoila
             GridNominas.Visibility = Visibility.Hidden;
             GridHorario.Visibility = Visibility.Hidden;
             GridTDia.Visibility = Visibility.Hidden;
+            GridPromo.Visibility = Visibility.Hidden;
+            ImagenManuales();
             GridHome.Visibility = Visibility.Visible;
         }
 
@@ -323,7 +323,8 @@ namespace interfaz_grafica_zoila
 
         private void BtnPromo_Click(object sender, RoutedEventArgs e)
         {
-
+            GridHome.Visibility = Visibility.Hidden;
+            GridPromo.Visibility = Visibility.Visible;
         }
 
         private void BtnInventario_Click(object sender, RoutedEventArgs e)
@@ -333,9 +334,47 @@ namespace interfaz_grafica_zoila
 
         private void BtnComida_Click(object sender, RoutedEventArgs e)
         {
-
+            ImagenManuales();
+            MSandwich.Visibility = Visibility.Visible;   
         }
 
-        
+        private void BtnBebidasF_Click(object sender, RoutedEventArgs e)
+        {
+            ImagenManuales();
+            mFrappe.Visibility = Visibility.Visible;
+        }
+
+        private void BtnBebidasC_Click(object sender, RoutedEventArgs e)
+        {
+            ImagenManuales();
+            mCafeCaliente.Visibility = Visibility.Visible;
+        }
+
+        private void BtnPostres_Click(object sender, RoutedEventArgs e)
+        {
+            ImagenManuales();
+            mPastel.Visibility = Visibility.Visible;
+        }
+
+        public void ImagenManuales()
+        {
+            mFrappe.Visibility = Visibility.Hidden;
+            mCafeCaliente.Visibility = Visibility.Hidden;
+            mPastel.Visibility = Visibility.Hidden;
+            MSandwich.Visibility = Visibility.Hidden;
+        }
+
+        private void Flecha1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ImgPromos1.Visibility = Visibility.Hidden;
+            ImgPromos2.Visibility = Visibility.Visible;
+        }
+
+        private void Flecha2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ImgPromos2.Visibility = Visibility.Hidden;
+            ImgPromos1.Visibility = Visibility.Visible;
+            
+        }
     }
 }
